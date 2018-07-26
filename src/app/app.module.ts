@@ -11,6 +11,7 @@ import {
   CreateSessionComponent,
   SessionListComponent
 } from './events/index';
+import { CollapsibleWellComponent } from './common/collapsible-well.component';
 import { EventsAppComponent } from './events-app.component';
 import { NavBarComponent } from './nav/navbar.component';
 import { appRoutes } from './routes';
@@ -32,7 +33,8 @@ import { Error404Component } from './errors/404.component';
     CreateEventComponent,
     CreateSessionComponent,
     Error404Component,
-    SessionListComponent
+    SessionListComponent,
+    CollapsibleWellComponent
   ],
   bootstrap: [EventsAppComponent]
 })
