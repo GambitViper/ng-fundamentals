@@ -9,7 +9,8 @@ import {
   EventDetailsComponent,
   CreateEventComponent,
   CreateSessionComponent,
-  SessionListComponent
+  SessionListComponent,
+  DurationPipe
 } from './events/index';
 import { CollapsibleWellComponent } from './common/collapsible-well.component';
 import { EventsAppComponent } from './events-app.component';
@@ -34,7 +35,8 @@ import { Error404Component } from './errors/404.component';
     CreateSessionComponent,
     Error404Component,
     SessionListComponent,
-    CollapsibleWellComponent
+    CollapsibleWellComponent,
+    DurationPipe
   ],
   bootstrap: [EventsAppComponent]
 })
