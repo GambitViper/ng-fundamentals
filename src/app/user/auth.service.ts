@@ -1,4 +1,7 @@
 import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Subject, Observable, of } from 'rxjs';
+import { tap, catchError } from 'rxjs/operators';
 import { IUser } from './user.model';
 
 @Injectable({
@@ -7,13 +10,28 @@ import { IUser } from './user.model';
 export class AuthService {
     currentUser: IUser;
 
-    loginUser(userName: string, password: string){
-        this.currentUser = {
-            id: 1,
-            userName: userName,
-            firstName: 'Zach',
-            lastName: 'Baklund'
-        }
+    constructor(private http: HttpClient) { }
+
+    loginUser(userName: string, password: string) {
+
+        let loginInfo = { username: userName, password: password };
+        let options = { headers: new HttpHeaders({'Content-Type': '/application/json'})};
+        
+        return this.http.post('/api/login', loginInfo, options)
+          .pipe(tap(data => {
+              this.currentUser = <IUser>data['user'];
+          }))
+          .pipe(catchError(err => {
+              return of(false)
+          }));
+        
+        // this.currentUser = {
+        //     id: 1,
+        //     userName: userName,
+        //     firstName: 'Zach',
+        //     lastName: 'Baklund'
+        // }
+
     }
 
     isAuthenticated() {
