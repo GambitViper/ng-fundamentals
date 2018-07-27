@@ -11,7 +11,8 @@ import {
   CreateSessionComponent,
   SessionListComponent,
   DurationPipe,
-  UpvoteComponent
+  UpvoteComponent,
+  LocationValidator
 } from './events/index';
 import { 
   CollapsibleWellComponent, 
@@ -50,7 +51,8 @@ let jQuery = window['$'];
     DurationPipe,
     SimpleModalComponent,
     ModalTriggerDirective,
-    UpvoteComponent
+    UpvoteComponent,
+    LocationValidator
   ],
   providers: [
     { provide: TOASTR_TOKEN, useValue: toastr },
