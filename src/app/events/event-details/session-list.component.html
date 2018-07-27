@@ -1,10 +1,12 @@
-<div class="row" *ngFor="let session of sessions">
+<div class="row" *ngFor="let session of visibleSessions">
     <div class="col-md-10">
       <collapsible-well>
-        <div data-well-title>
+        <div data-well-title style="display: inline-block">
             {{session.name}}
             <i *ngIf="session.voters.length > 3" class="glyphicon glyphicon-fire" style="color:red"></i>
         </div>
+        <span data-chevron-down style="display: inline-block" class="glyphicon glyphicon-chevron-down pull-right" *ngIf="!visible"></span>
+        <span data-chevron-up style="display: inline-block" class="glyphicon glyphicon-chevron-up pull-right" *ngIf="!visible"></span>
         <div data-well-body>
           <h6>{{session.presenter}}</h6>
           <span>Duration: {{session.duration | duration}}</span><br />
