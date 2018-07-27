@@ -15,8 +15,11 @@ import {
 import { CollapsibleWellComponent } from './common/collapsible-well.component';
 import { EventsAppComponent } from './events-app.component';
 import { NavBarComponent } from './nav/navbar.component';
+import { TOASTR_TOKEN, Toastr } from './common/toastr.service';
 import { appRoutes } from './routes';
 import { Error404Component } from './errors/404.component';
+
+let toastr: Toastr = window['toastr'];
 
 @NgModule({
   imports: [
@@ -37,6 +40,9 @@ import { Error404Component } from './errors/404.component';
     SessionListComponent,
     CollapsibleWellComponent,
     DurationPipe
+  ],
+  providers: [
+    { provide: TOASTR_TOKEN, useValue: toastr }
   ],
   bootstrap: [EventsAppComponent]
 })
